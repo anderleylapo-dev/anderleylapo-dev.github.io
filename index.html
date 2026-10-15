@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ========================================== -->
+  <!-- ETIQUETAS SEO PARA APARECER EN GOOGLE -->
+  <!-- ========================================== -->
+  <title>AROMAS PRESTIGE | Perfumería de Lujo en Ecuador - Un Glamur de Aromas</title>
+  <meta name="description" content="Descubre fragancias exclusivas para hombres y mujeres en AROMAS PRESTIGE. Envíos a todo el Ecuador con facilidades de pago vía Banco de Loja.">
+  <meta name="keywords" content="AROMAS PRESTIGE, perfumes Ecuador, fragancias de lujo, perfumería Loja, compra perfumes online">
+  <meta name="robots" content="index, follow">
+
+  <!-- Favicon e Imagen de vista previa -->
+  <link rel="icon" type="image/x-icon" href="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=150">
+
+  <!-- Open Graph para Redes Sociales y Motores de Búsqueda -->
+  <meta property="og:title" content="AROMAS PRESTIGE | Un Glamur de Aromas">
+  <meta property="og:description" content="Fragancias exclusivas para hombre y mujer con envíos a todo Ecuador.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=400">
+  <meta property="og:url" content="https://aromasprestige.com">
+  <meta property="og:type" content="website">
+
+  <!-- Schema.org (Datos estructurados para la ficha de Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "AROMAS PRESTIGE",
+    "description": "Tienda de perfumes y fragancias de lujo en Ecuador",
+    "image": "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=150",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Loja",
+      "addressCountry": "EC"
+    }
+  }
+  </script>
+
+  <!-- Fuentes e Iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-dark: #070b14;
+      --bg-card: #0f172a;
+      --gold: #d4af37;
+      --gold-light: #f3e5ab;
+      --gold-dark: #aa7c11;
+      --accent-blue: #1e40af;
+      --accent-pink: #db2777;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+    body { background-color: var(--bg-dark); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; }
+
+    header {
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 2px solid var(--gold);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .brand-container { display: flex; align-items: center; gap: 15px; cursor: pointer; }
+    .brand-logo { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--gold); object-fit: cover; }
+    .brand-title h1 { font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--gold); }
+    .brand-title p { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; }
+
+    .nav-actions { display: flex; align-items: center; gap: 15px; }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #000;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-gold:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    .cart-btn, .user-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .view-section { display: none; padding: 30px; flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; }
+    .view-section.active { display: block; }
+
+    /* Carrusel */
+    .hero-carousel { text-align: center; padding: 20px 0; }
+    .carousel-container {
+      width: 320px;
+      height: 400px;
+      margin: 20px auto;
+      border-radius: 15px;
+      border: 2px solid var(--gold);
+      overflow: hidden;
+      background: var(--bg-card);
+      position: relative;
+    }
+    .carousel-container img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.5s ease-in-out; }
+    .carousel-info { margin-top: 10px; font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 1.2rem; }
+
+    /* Categorías */
+    .category-buttons { display: flex; justify-content: center; gap: 30px; margin-top: 40px; }
+    .cat-btn {
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+      transition: 0.3s;
+    }
+    .cat-btn.hombre { background-color: var(--accent-blue); }
+    .cat-btn.mujeres { background-color: var(--accent-pink); }
+    .cat-btn:hover { transform: scale(1.05); }
+
+    /* Catálogo */
+    .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+    .perfume-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .perfume-card img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
+    .perfume-card h3 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1.1rem; }
+
+    /* Formulario y Tablas */
+    .admin-panel, .leader-panel { background: var(--bg-card); padding: 25px; border-radius: 10px; border: 1px solid var(--gold); margin-top: 20px; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; color: var(--gold-light); }
+    .form-group input, .form-group select { width: 100%; padding: 10px; background: var(--bg-dark); border: 1px solid #334155; border-radius: 5px; color: white; }
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    th, td { padding: 10px; border-bottom: 1px solid #334155; text-align: left; font-size: 0.9rem; }
+    th { color: var(--gold); }
+
+    /* Modal Factura */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 2000; }
+    .modal-content { background: var(--bg-card); border: 2px solid var(--gold); padding: 30px; border-radius: 12px; width: 90%; max-width: 500px; position: relative; }
+
+    /* Botón flotante de WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25d366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+      z-index: 1500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-container" onclick="mostrarSeccion('inicio')">
+      <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=150" alt="Logo Aromas Prestige" class="brand-logo">
+      <div class="brand-title">
+        <h1>AROMAS PRESTIGE</h1>
+        <p>Un Glamur de Aromas</p>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <button class="cart-btn" onclick="verCarrito()"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></button>
+      <div id="authContainer">
+        <button class="btn-gold" onclick="loginGoogle()"><i class="fab fa-google"></i> Iniciar Sesión</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECCIÓN INICIO -->
+  <section id="seccion-inicio" class="view-section active">
+    <div class="hero-carousel">
+      <h2 style="font-family: 'Cinzel', serif; color: var(--gold);">FRAGANCIAS EXCLUSIVAS</h2>
+      <div class="carousel-container">
+        <img id="carouselImg" src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=400" alt="Perfume Destacado">
+      </div>
+      <div class="carousel-info" id="carouselTitle">Selección de Lujo</div>
+    </div>
+    <div class="category-buttons">
+      <button class="cat-btn hombre" onclick="verCatalogo('hombre')"><i class="fas fa-mars"></i> HOMBRE</button>
+      <button class="cat-btn mujeres" onclick="verCatalogo('mujeres')"><i class="fas fa-venus"></i> MUJERES</button>
+    </div>
+  </section>
+
+  <!-- SECCIÓN CATÁLOGO -->
+  <section id="seccion-catalogo" class="view-section">
+    <button class="btn-gold" onclick="mostrarSeccion('inicio')" style="margin-bottom: 20px;"><i class="fas fa-arrow-left"></i> Volver</button>
+    <h2 id="tituloCatalogo" style="font-family: 'Cinzel', serif; color: var(--gold); text-transform: uppercase;">Catálogo</h2>
+    <div class="catalog-grid" id="gridPerfumes"></div>
+  </section>
+
+  <!-- SECCIÓN ADMINISTRADOR -->
+  <section id="seccion-admin" class="view-section">
+    <h2 style="font-family: 'Cinzel', serif; color: var(--gold);">PANEL DE ADMINISTRACIÓN</h2>
+    <div class="admin-panel">
+      <h3>Añadir Nuevo Perfume</h3>
+      <div class="form-group"><label>Nombre:</label><input type="text" id="adminNombre"></div>
+      <div class="form-group"><label>Categoría:</label><select id="adminCat"><option value="hombre">Hombre</option><option value="mujeres">Mujeres</option></select></div>
+      <div class="form-group"><label>Precio ($):</label><input type="number" id="adminPrecio" step="0.01"></div>
+      <div class="form-group"><label>Subir Foto:</label><input type="file" id="adminArchivoFoto" accept="image/*"></div>
+      <button class="btn-gold" onclick="agregarPerfumeAdmin()">Guardar Perfume</button>
+    </div>
+    <div class="admin-panel" style="margin-top: 20px;">
+      <h3>Gestión de Usuarios</h3>
+      <table><thead><tr><th>Usuario</th><th>Email</th><th>Estado</th><th>Acción</th></tr></thead><tbody id="tablaUsuariosAdmin"></tbody></table>
+    </div>
+  </section>
+
+  <!-- SECCIÓN LÍDER -->
+  <section id="seccion-lider" class="view-section">
+    <h2 style="font-family: 'Cinzel', serif; color: var(--gold);">PANEL DE LÍDER</h2>
+    <div class="leader-panel">
+      <h3>Configuración Cuenta Banco de Loja</h3>
+      <div class="form-group"><label>N° Cuenta:</label><input type="text" id="liderCuenta"></div>
+      <div class="form-group"><label>Titular:</label><input type="text" id="liderTitular"></div>
+      <div class="form-group"><label>Cédula:</label><input type="text" id="liderCedula"></div>
+      <button class="btn-gold" onclick="guardarConfigLider()">Guardar Datos</button>
+    </div>
+    <div class="leader-panel" style="margin-top: 20px;">
+      <h3>Asignación de Roles</h3>
+      <table><thead><tr><th>Usuario</th><th>Email</th><th>Rol</th><th>Acción</th></tr></thead><tbody id="tablaLiderRoles"></tbody></table>
+    </div>
+  </section>
+
+  <!-- SECCIÓN CHECKOUT / BANCO DE LOJA -->
+  <section id="seccion-checkout" class="view-section">
+    <button class="btn-gold" onclick="mostrarSeccion('inicio')" style="margin-bottom: 20px;"><i class="fas fa-arrow-left"></i> Cancelar</button>
+    <div class="admin-panel" style="max-width: 700px; margin: 0 auto;">
+      <h2 style="font-family: 'Cinzel', serif; color: var(--gold); text-align: center; margin-bottom: 20px;">Finalizar Compra</h2>
+      <div class="form-group"><label>Método de Pago (Banco de Loja Ecuador):</label><div style="display: flex; gap: 20px;"><label><input type="radio" name="pago" checked> Tarjeta Débito</label><label><input type="radio" name="pago"> Tarjeta Crédito</label></div></div>
+      <div class="form-group"><label>Número de Tarjeta:</label><input type="text" placeholder="XXXX-XXXX-XXXX-XXXX"></div>
+      <div class="form-group"><label>Calle Principal (Primera Calle):</label><input type="text" id="callePrincipal" placeholder="Ej: Av. Cuxibamba"></div>
+      <div class="form-group"><label>Calle Secundaria:</label><input type="text" id="calleSecundaria" placeholder="Ej: Bernardo Valdivieso"></div>
+      <button class="btn-gold" onclick="procesarPagoFinal()" style="width: 100%; margin-top: 15px;">Pagar y Generar Factura</button>
+    </div>
+  </section>
+
+  <!-- MODAL FACTURA Y CÓDIGO DE SEGUIMIENTO -->
+  <div class="modal" id="modalFactura">
+    <div class="modal-content">
+      <h2 style="color: var(--gold); text-align: center; font-family: 'Cinzel', serif;">AROMAS PRESTIGE</h2>
+      <p style="text-align: center; font-size: 0.8rem; color: var(--text-muted);">Banco de Loja - Factura Digital</p>
+      <hr style="border-color: #334155; margin: 15px 0;">
+      <p><strong>Cliente:</strong> <span id="facCliente"></span></p>
+      <p><strong>Envío:</strong> <span id="facDir"></span></p>
+      <div style="background: var(--bg-dark); padding: 15px; border-radius: 8px; border: 1px dashed var(--gold); text-align: center; margin: 20px 0;">
+        <p style="color: var(--gold);">📦 Código de Seguimiento:</p>
+        <div style="font-size: 1.3rem; font-weight: bold; color: #38bdf8;" id="codigoTracking">AP-LOJA-99821-EC</div>
+      </div>
+      <button class="btn-gold" onclick="cerrarFacturaYVolverInicio()" style="width: 100%;">Aceptar y Volver al Inicio</button>
+    </div>
+  </div>
+
+  <!-- BOTÓN FLOTANTE DIRECCIONADO AL NÚMERO DEL BOT/ADMIN 1 -->
+  <a href="https://wa.me/593980328394?text=Hola,%20vengo%20de%20la%20web%20de%20Aromas%20Prestige%20y%20deseo%20atención" target="_blank" class="whatsapp-float" title="Hablar con el Bot de WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    let usuarioActual = null;
+    let perfumes = [
+      { id: 1, nombre: "Elegance Man", categoria: "hombre", precio: 85.00, img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=400" },
+      { id: 2, nombre: "Rose Supreme", categoria: "mujeres", precio: 92.00, img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400" }
+    ];
+    let carrito = [];
+    let usuariosBD = [{ email: "lider@aromasprestige.com", name: "Anderson Lapo", role: "lider", baneado: false }];
+
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
+      document.getElementById(`seccion-${id}`).classList.add('active');
+    }
+
+    function loginGoogle() {
+      const email = prompt("Ingrese su correo de Google:");
+      if (!email) return;
+      let user = usuariosBD.find(u => u.email.toLowerCase() === email.toLowerCase());
+      if (!user) {
+        user = { email, name: email.split('@')[0], role: 'cliente', baneado: false };
+        usuariosBD.push(user);
+      }
+      if (user.baneado) { alert("Usuario suspendido."); return; }
+      usuarioActual = user;
+      actualizarUIAuth();
+      alert(`Bienvenido, ${usuarioActual.name}`);
+    }
+
+    function cerrarSesion() { usuarioActual = null; actualizarUIAuth(); mostrarSeccion('inicio'); }
+
+    function actualizarUIAuth() {
+      const c = document.getElementById('authContainer');
+      if (usuarioActual) {
+        let extra = '';
+        if (usuarioActual.role === 'lider' || usuarioActual.role === 'admin') extra += `<button class="btn-gold" onclick="mostrarSeccion('admin')" style="margin-right:8px;">Admin</button>`;
+        if (usuarioActual.role === 'lider') extra += `<button class="btn-gold" onclick="mostrarSeccion('lider')" style="margin-right:8px; background:#38bdf8; color:#000;">Líder</button>`;
+        c.innerHTML = `${extra}<button class="user-btn" onclick="cerrarSesion()">${usuarioActual.name}</button>`;
+        cargarTablasGestion();
+      } else {
+        c.innerHTML = `<button class="btn-gold" onclick="loginGoogle()"><i class="fab fa-google"></i> Iniciar Sesión</button>`;
+      }
+    }
+
+    // Rotación del carrusel cada 5 segundos
+    setInterval(() => {
+      if (perfumes.length > 0) {
+        const p = perfumes[Math.floor(Math.random() * perfumes.length)];
+        document.getElementById('carouselImg').src = p.img;
+        document.getElementById('carouselTitle').innerText = `${p.nombre} - $${p.precio.toFixed(2)}`;
+      }
+    }, 5000);
+
+    function verCatalogo(cat) {
+      const grid = document.getElementById('gridPerfumes');
+      document.getElementById('tituloCatalogo').innerText = `Catálogo - ${cat.toUpperCase()}`;
+      grid.innerHTML = '';
+      perfumes.filter(p => p.categoria === cat).forEach(p => {
+        grid.innerHTML += `<div class="perfume-card"><img src="${p.img}"><h3>${p.nombre}</h3><div style="color:#22c55e;font-weight:bold;margin:10px 0;">$${p.precio.toFixed(2)}</div><button class="btn-gold" onclick="agregarAlCarrito(${p.id})">Comprar</button></div>`;
+      });
+      mostrarSeccion('catalogo');
+    }
+
+    function agregarAlCarrito(id) {
+      if (!usuarioActual) { alert("Inicie sesión con Google."); loginGoogle(); return; }
+      carrito.push(perfumes.find(p => p.id === id));
+      document.getElementById('cartCount').innerText = carrito.length;
+      alert("Añadido al carrito.");
+    }
+
+    function verCarrito() {
+      if (!usuarioActual) { alert("Inicie sesión con Google."); loginGoogle(); return; }
+      if (carrito.length === 0) { alert("Carrito vacío."); return; }
+      mostrarSeccion('checkout');
+    }
+
+    function agregarPerfumeAdmin() {
+      const nombre = document.getElementById('adminNombre').value;
+      const cat = document.getElementById('adminCat').value;
+      const precio = parseFloat(document.getElementById('adminPrecio').value);
+      const file = document.getElementById('adminArchivoFoto').files[0];
+      if (!nombre || isNaN(precio) || !file) { alert("Complete todos los campos."); return; }
+      const reader = new FileReader();
+      reader.onload = e => {
+        perfumes.push({ id: perfumes.length + 1, nombre, categoria: cat, precio, img: e.target.result });
+        alert("Perfume agregado exitosamente.");
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function cargarTablasGestion() {
+      const ta = document.getElementById('tablaUsuariosAdmin');
+      if (ta) {
+        ta.innerHTML = '';
+        usuariosBD.forEach(u => {
+          ta.innerHTML += `<tr><td>${u.name}</td><td>${u.email}</td><td>${u.baneado?'Baneado':'Activo'}</td><td><button class="btn-gold" onclick="toggleBaneo('${u.email}')">${u.baneado?'Activar':'Banear'}</button></td></tr>`;
+        });
+      }
+      const tl = document.getElementById('tablaLiderRoles');
+      if (tl && usuarioActual && usuarioActual.role === 'lider') {
+        tl.innerHTML = '';
+        usuariosBD.forEach(u => {
+          tl.innerHTML += `<tr><td>${u.name}</td><td>${u.email}</td><td><strong>${u.role}</strong></td><td><select onchange="cambiarRol('${u.email}', this.value)" style="background:#070b14;color:#fff;"><option value="cliente">Cliente</option><option value="admin">Admin</option><option value="lider">Líder</option></select></td></tr>`;
+        });
+      }
+    }
+
+    function toggleBaneo(email) {
+      const u = usuariosBD.find(i => i.email === email);
+      if (u) { u.baneado = !u.baneado; cargarTablasGestion(); }
+    }
+
+    function cambiarRol(email, rol) {
+      const u = usuariosBD.find(i => i.email === email);
+      if (u) { u.role = rol; alert("Rol actualizado."); cargarTablasGestion(); }
+    }
+
+    function guardarConfigLider() { alert("Configuración guardada exitosamente."); }
+
+    function procesarPagoFinal() {
+      const c1 = document.getElementById('callePrincipal').value;
+      const c2 = document.getElementById('calleSecundaria').value;
+      if (!c1 || !c2) { alert("Ingrese las calles."); return; }
+      document.getElementById('facCliente').innerText = usuarioActual.name;
+      document.getElementById('facDir').innerText = `${c1} y ${c2}, Ecuador`;
+      document.getElementById('modalFactura').style.display = 'flex';
+    }
+
+    function cerrarFacturaYVolverInicio() {
+      document.getElementById('modalFactura').style.display = 'none';
+      carrito = [];
+      document.getElementById('cartCount').innerText = '0';
+      mostrarSeccion('inicio');
+    }
+  </script>
+</body>
+</html>
